@@ -44,7 +44,7 @@ if file_upload is not None:
         with open("iso_forest_model.pkl", "rb") as f:
             iso_forest_model = pkl.load(f)  # Isolation Forest model
 
-        autoencoder_model = tf.keras.models.load_model("Autoencoder_model.h5")  # Autoencoder model
+        autoencoder_model = tf.keras.models.load_model("Autoencoder_model_streamlit.keras")  # Autoencoder model
 
         # Button to trigger predictions
         if st.button("Predict"):
