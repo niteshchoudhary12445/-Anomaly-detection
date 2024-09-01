@@ -4,5 +4,9 @@ numpy
 scikit-learn
 streamlit
 openpyxl
-keras
 tf_keras
+tf-estimator-nightly 
+tfds-nightly 
+tensorflow-datasets 
+tensorflow-estimator 
+tensorflow-intel 
