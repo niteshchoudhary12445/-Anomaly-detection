@@ -43,8 +43,9 @@ if file_upload is not None:
         # Load pre-trained models for anomaly detection
         with open("iso_forest_model.pkl", "rb") as f:
             iso_forest_model = pkl.load(f)  # Isolation Forest model
-
-        autoencoder_model = tf.keras.models.load_model("Autoencoder_model.h5")  # Autoencoder model
+        custom_objects = {'BinaryCrossentropy': tf.keras.losses.BinaryCrossentropy()}
+        autoencoder_model = tf.keras.models.load_model("Autoencoder_model.h5", custom_objects=custom_objects)
+        # autoencoder_model = tf.keras.models.load_model("Autoencoder_model.h5")  # Autoencoder model
 
         # Button to trigger predictions
         if st.button("Predict"):
