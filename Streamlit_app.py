@@ -63,10 +63,11 @@ if file_upload is not None:
 
     # User selects the file type for download
     file_type = st.radio("Select file type: ", ("CSV", "Excel", "Json"))
-    # Default file name based on selected type
-    default_file_name = f"processed_data.{file_type.lower()}"
-    # Optional custom file name input
-    custom_file_name = st.text_input("Enter a custom file name (optional):", default_file_name)
+    custom_file_name = st.text_input("Enter a custom file name (optional):", "")
+
+    # Determine the final file name
+    if not custom_file_name:
+        custom_file_name = f"processed_data.{file_type.lower()}"
 
     # Prepare data for download based on selected file type
     if file_type == "CSV":
