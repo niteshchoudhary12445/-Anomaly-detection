@@ -50,6 +50,7 @@ if file_upload is not None:
         if st.button("Predict"):
             # Make predictions using Isolation Forest
             iso_forest_model_preds = iso_forest_model.predict(data.select_dtypes(include=[float, int]))
+            iso_forest_model_preds = pd.Series(iso_forest_model_preds).map({1: 0, -1: 1})
             # Make predictions using the autoencoder
             autoencoder_model_preds = autoencoder_model.predict(data.select_dtypes(include=[float, int]))
             autoencoder_model_preds = tf.squeeze(tf.round(autoencoder_model_preds))
